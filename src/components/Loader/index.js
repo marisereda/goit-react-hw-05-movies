@@ -1,2 +1,1 @@
-export * from './Loader';
-export * from './Loader.styled';
+export { default } from './Loader.styled';

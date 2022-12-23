@@ -40,7 +40,7 @@ const shadowRolling = keyframes`
     }
 `;
 
-export const Spinner = styled.span`
+const Loader = styled.span`
   position: relative;
   left: -100px;
   display: block;
@@ -57,3 +57,5 @@ export const Spinner = styled.span`
   animation-duration: 2s;
   animation-iteration-count: infinite;
 `;
+
+export default Loader;

@@ -1,9 +1,11 @@
 import { Outlet, Link } from 'react-router-dom';
+import { Box } from 'components/Box';
+import Header from 'components/Header';
 
 const SharedLayout = () => {
   return (
-    <div>
-      <header>
+    <Box as="div">
+      {/* <header>
         <ul>
           <li>
             <Link to="/">Home</Link>
@@ -12,11 +14,13 @@ const SharedLayout = () => {
             <Link to="movies">Movies</Link>
           </li>
         </ul>
-        {/* <p>SharedLayout</p> */}
-      </header>
+        <p>SharedLayout</p>
+      </header> */}
+
+      <Header />
 
       <Outlet />
-    </div>
+    </Box>
   );
 };
 

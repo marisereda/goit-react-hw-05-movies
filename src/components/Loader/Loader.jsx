@@ -1,3 +1,3 @@
-import { Spinner } from './Loader.styled';
+import Spinner from './Loader.styled';
 
 export const Loader = () => <Spinner />;

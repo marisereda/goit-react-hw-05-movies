@@ -22,22 +22,22 @@ export const SearchBar = ({ onSearchSubmit }) => {
 
   return (
     <Box
-      top={0}
-      left={0}
-      position=" sticky"
-      zIndex="searchBar"
+      // top={0}
+      // left={0}
+      // position=" sticky"
+      // zIndex="searchBar"
       display="flex"
       justifyContent="center"
       alignItems="center"
       minHeight="searchBar"
-      paddingRight={5}
-      paddingLeft={5}
-      paddingTop={4}
-      paddingBottom={4}
+      // paddingRight={5}
+      // paddingLeft={5}
+      paddingTop={6}
+      paddingBottom={6}
       color="textPrimary"
-      backgroundColor="bgSearchBar"
-      boxShadow="primary"
-      as="header"
+      // backgroundColor="bgSearchBar"
+      // boxShadow="primary"
+      as="div"
     >
       <Form onSubmit={handleSubmit}>
         <Button type="submit">
@@ -48,7 +48,7 @@ export const SearchBar = ({ onSearchSubmit }) => {
           aria-label="search"
           autoComplete="off"
           autoFocus
-          placeholder="Search images and photos"
+          placeholder="Search movies"
           onChange={handleInputChange}
           value={search}
         />
