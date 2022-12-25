@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { toast } from 'react-toastify';
 import { Box } from 'components/Box';
 import MovieGallery from 'components/MovieGallery';
 import Loader from 'components/Loader';
@@ -22,6 +21,7 @@ const Home = () => {
   useEffect(() => {
     const controller = new AbortController();
     const signal = controller.signal;
+
     async function getMovies() {
       try {
         const trendingMovies = await getTrendingMovies({ signal });
@@ -34,6 +34,7 @@ const Home = () => {
       }
     }
     getMovies();
+
     return () => {
       controller.abort();
     };
@@ -54,8 +55,9 @@ const Home = () => {
         <PageTitle>Trending today</PageTitle>
 
         {status === STATUS.pending && <Loader />}
-        <MovieGallery movies={trendingMovies} />
-        <ToastContainer />
+        {trendingMovies.length !== 0 && (
+          <MovieGallery movies={trendingMovies} />
+        )}
       </Box>
     </Box>
   );

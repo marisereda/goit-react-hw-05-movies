@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { toast } from 'react-toastify';
+
 import { Box } from 'components/Box';
 import Loader from 'components/Loader';
 import { getMovieCast } from 'utils';
@@ -37,6 +37,7 @@ const Cast = () => {
       }
     }
     getCast();
+
     return () => {
       controller.abort();
     };
@@ -51,27 +52,29 @@ const Cast = () => {
   return (
     <Box borderRadius="textBlock" backgroundColor="bgAccent" padding={6}>
       {status === STATUS.pending && <Loader />}
-
-      <Box
-        display="grid"
-        gridTemplateColumns="1fr 1fr 1fr"
-        gridGap={5}
-        maxWidth="maxBox"
-        as="ul"
-      >
-        {cast.map(actor => (
-          <li key={actor.id}>
-            <ImageWrap>
-              <Image src={BASE_URL + actor.profile_path} alt={actor.name} />
-            </ImageWrap>
-            <h3>{actor.name}</h3>
-            <p>
-              Character: <span>{actor.character}</span>
-            </p>
-          </li>
-        ))}
-      </Box>
-      <ToastContainer />
+      {cast.length === 0 ? (
+        <p>There is no cast.</p>
+      ) : (
+        <Box
+          display="grid"
+          gridTemplateColumns="1fr 1fr 1fr"
+          gridGap={5}
+          maxWidth="maxBox"
+          as="ul"
+        >
+          {cast.map(({ id, profile_path, name, character }) => (
+            <li key={id}>
+              <ImageWrap>
+                <Image src={BASE_URL + profile_path} alt={name} />
+              </ImageWrap>
+              <h3>{name}</h3>
+              <p>
+                Character: <span>{character}</span>
+              </p>
+            </li>
+          ))}
+        </Box>
+      )}
     </Box>
   );
 };

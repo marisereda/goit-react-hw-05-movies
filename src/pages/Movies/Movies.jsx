@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { toast } from 'react-toastify';
 import { Box } from 'components/Box';
 import MovieGallery from 'components/MovieGallery';
 import Loader from 'components/Loader';
@@ -26,8 +25,8 @@ const Movies = () => {
     const signal = controller.signal;
     const search = searchParams.get('query');
 
+    setFoundMovies([]);
     if (!search) {
-      setFoundMovies([]);
       return;
     }
 
@@ -46,7 +45,6 @@ const Movies = () => {
         toast(error.message);
       }
     }
-
     sendQuery();
 
     return () => {
@@ -80,8 +78,6 @@ const Movies = () => {
         {status === STATUS.pending && <Loader />}
 
         <MovieGallery movies={foundMovies} />
-
-        <ToastContainer />
       </Box>
     </Box>
   );

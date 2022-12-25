@@ -60,3 +60,8 @@ export const SearchBar = ({ onSearchSubmit, value }) => {
 SearchBar.propTypes = {
   onSearchSubmit: PropTypes.func.isRequired,
 };
+
+SearchBar.propTypes = {
+  onSearchSubmit: PropTypes.func.isRequired,
+  value: PropTypes.string,
+};

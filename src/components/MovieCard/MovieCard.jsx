@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { Link, useLocation } from 'react-router-dom';
 import { Box } from 'components/Box';
 import { Item, Image, Title, Votes } from './MovieCard.styled';
@@ -6,7 +7,6 @@ const MovieCard = ({ id, title, posterPath, votes }) => {
   const BASE_URL = 'https://image.tmdb.org/t/p/w500';
   const location = useLocation();
   const path = location.pathname === '/movies' ? `${id}` : `movies/${id}`;
-  console.log('MovieCard backPath:', location.pathname + location.search);
   return (
     <Item>
       <Link
@@ -31,3 +31,10 @@ const MovieCard = ({ id, title, posterPath, votes }) => {
 };
 
 export default MovieCard;
+
+MovieCard.propTypes = {
+  id: PropTypes.number.isRequired,
+  title: PropTypes.string.isRequired,
+  posterPath: PropTypes.string,
+  votes: PropTypes.number.isRequired,
+};

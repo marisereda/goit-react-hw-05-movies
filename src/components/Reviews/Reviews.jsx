@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { toast } from 'react-toastify';
 import { Box } from 'components/Box';
 import { getReviews } from 'utils';
 import Loader from 'components/Loader';
@@ -36,6 +35,7 @@ const Reviews = () => {
       }
     }
     getCast();
+
     return () => {
       controller.abort();
     };
@@ -55,22 +55,21 @@ const Reviews = () => {
         <p>There is no reviews.</p>
       ) : (
         <Box as="ul" display="flex" flexDirection="column" gridGap={6}>
-          {reviews.map(review => (
+          {reviews.map(({ id, author, created_at, content }) => (
             <Box
               as="li"
               display="flex"
               flexDirection="column"
               gridGap={3}
-              key={review.id}
+              key={id}
             >
-              <h3>{review.author}</h3>
-              <h4>{review.created_at.slice(0, 10)}</h4>
-              <Content>{review.content}</Content>
+              <h3>{author}</h3>
+              <h4>{created_at.slice(0, 10)}</h4>
+              <Content>{content}</Content>
             </Box>
           ))}
         </Box>
       )}
-      <ToastContainer />
     </Box>
   );
 };
