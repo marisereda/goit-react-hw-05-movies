@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, Suspense, useRef } from 'react';
 import { Outlet, useParams, useLocation } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -6,6 +6,7 @@ import { getMovieDetails } from 'utils';
 import { Box } from 'components/Box';
 import Loader from 'components/Loader';
 import { Link } from 'components/Link';
+import SuspenedPage from 'components/SuspenedPage';
 import {
   Image,
   Title,
@@ -27,12 +28,18 @@ const STATUS = {
 const MovieDetails = () => {
   const BASE_URL = 'https://image.tmdb.org/t/p/w500';
   const location = useLocation();
+  const backPath = useRef();
+
+  console.log('New render Movie Details');
 
   const { movieId } = useParams();
   const [details, setDetails] = useState(null);
   const [status, setStatus] = useState(STATUS.idle);
 
   // -------------------------------------------------
+  if (!backPath.current) {
+    backPath.current = location.state ? location.state.from : '/';
+  }
   useEffect(() => {
     const controller = new AbortController();
     const signal = controller.signal;
@@ -65,7 +72,6 @@ const MovieDetails = () => {
   }
 
   // -------------------------------------------------
-  const backPath = location.state ? location.state.from : '/';
 
   return (
     <Box backgroundColor="bgMain" minHeight="100vh" as="main">
@@ -79,7 +85,7 @@ const MovieDetails = () => {
         paddingRight={3}
       >
         {status === STATUS.pending && <Loader />}
-        <LinkBack to={backPath}>
+        <LinkBack to={backPath.current}>
           <Icon />
         </LinkBack>
 
@@ -116,7 +122,9 @@ const MovieDetails = () => {
               </Item>
             </ul>
           </Box>
-          <Outlet />
+          <Suspense fallback={<SuspenedPage />}>
+            <Outlet />
+          </Suspense>
         </Box>
         <ToastContainer />
       </Box>

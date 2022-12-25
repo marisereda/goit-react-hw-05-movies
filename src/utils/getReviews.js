@@ -15,10 +15,11 @@ export async function getReviews({ id, signal }) {
     if (!response) {
       throw Error('We are sorry! There is no cast information about the movie');
     }
+    console.log(response.data.results);
     return response.data.results;
   } catch (error) {
     if (error.name === 'CanceledError') {
-      return [];
+      return null;
     }
     if (error.response || error.request) {
       throw Error('There is no server response. Try later again!');

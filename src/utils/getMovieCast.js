@@ -15,6 +15,7 @@ export async function getMovieCast({ id, signal }) {
     if (!response) {
       throw Error('We are sorry! There is no cast information about the movie');
     }
+
     return response.data.cast;
   } catch (error) {
     if (error.name === 'CanceledError') {

@@ -6,7 +6,7 @@ const MovieCard = ({ id, title, posterPath, votes }) => {
   const BASE_URL = 'https://image.tmdb.org/t/p/w500';
   const location = useLocation();
   const path = location.pathname === '/movies' ? `${id}` : `movies/${id}`;
-
+  console.log('MovieCard backPath:', location.pathname + location.search);
   return (
     <Item>
       <Link

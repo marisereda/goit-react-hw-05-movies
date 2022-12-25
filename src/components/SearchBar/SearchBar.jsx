@@ -4,9 +4,17 @@ import { ImSearch } from 'react-icons/im';
 import { Box } from 'components/Box';
 import { Form, Button, SearchInput } from 'components/SearchBar';
 import { theme } from 'constants/theme';
+import { useEffect } from 'react';
 
 export const SearchBar = ({ onSearchSubmit, value }) => {
   const [search, setSearch] = useState('');
+
+  // -------------------------------------------------
+  useEffect(() => {
+    if (value) {
+      setSearch(value);
+    }
+  }, [value]);
 
   // -------------------------------------------------
   const handleSubmit = e => {
@@ -42,7 +50,7 @@ export const SearchBar = ({ onSearchSubmit, value }) => {
           autoFocus
           placeholder="Search movies"
           onChange={handleInputChange}
-          value={value ? value : search}
+          value={search}
         />
       </Form>
     </Box>

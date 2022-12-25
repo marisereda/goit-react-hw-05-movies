@@ -5,6 +5,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { Box } from 'components/Box';
 import { getReviews } from 'utils';
 import Loader from 'components/Loader';
+import { Content } from './Reviews.styled';
 
 const STATUS = {
   idle: 0,
@@ -64,7 +65,7 @@ const Reviews = () => {
             >
               <h3>{review.author}</h3>
               <h4>{review.created_at.slice(0, 10)}</h4>
-              <p>{review.content}</p>
+              <Content>{review.content}</Content>
             </Box>
           ))}
         </Box>

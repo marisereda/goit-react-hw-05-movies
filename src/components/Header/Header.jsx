@@ -3,7 +3,7 @@ import { Link } from 'components/Link';
 
 const Header = () => {
   return (
-    <Box backgroundColor="bgDark" boxShadow="primary" as="header">
+    <Box backgroundColor="bgDark" as="header">
       <Box
         width="container"
         marginLeft="auto"
