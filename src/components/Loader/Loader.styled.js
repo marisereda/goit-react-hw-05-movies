@@ -7,32 +7,32 @@ const shadowRolling = keyframes`
         0px 0 rgba(255, 255, 255, 0), 0px 0 rgba(255, 255, 255, 0);
     }
     12% {
-      box-shadow: 100px 0 #3f51b5, 0px 0 rgba(255, 255, 255, 0),
+      box-shadow: 100px 0 #8D8DAA, 0px 0 rgba(255, 255, 255, 0),
         0px 0 rgba(255, 255, 255, 0), 0px 0 rgba(255, 255, 255, 0);
     }
     25% {
-      box-shadow: 110px 0 #3f51b5, 100px 0 #3f51b5,
+      box-shadow: 110px 0 #8D8DAA, 100px 0 #8D8DAA,
         0px 0 rgba(255, 255, 255, 0), 0px 0 rgba(255, 255, 255, 0);
     }
     36% {
-      box-shadow: 120px 0 #3f51b5, 110px 0 #3f51b5,
-        100px 0 #3f51b5, 0px 0 rgba(255, 255, 255, 0);
+      box-shadow: 120px 0 #8D8DAA, 110px 0 #8D8DAA,
+        100px 0 #8D8DAA, 0px 0 rgba(255, 255, 255, 0);
     }
     50% {
-      box-shadow: 130px 0 #3f51b5, 120px 0 #3f51b5,
-        110px 0 #3f51b5, 100px 0 #3f51b5;
+      box-shadow: 130px 0 #8D8DAA, 120px 0 #8D8DAA,
+        110px 0 #8D8DAA, 100px 0 #8D8DAA;
     }
     62% {
-      box-shadow: 200px 0 rgba(255, 255, 255, 0), 130px 0 #3f51b5,
-        120px 0 #3f51b5, 110px 0 #3f51b5;
+      box-shadow: 200px 0 rgba(255, 255, 255, 0), 130px 0 #8D8DAA,
+        120px 0 #8D8DAA, 110px 0 #8D8DAA;
     }
     75% {
       box-shadow: 200px 0 rgba(255, 255, 255, 0), 200px 0 rgba(255, 255, 255, 0),
-        130px 0 #3f51b5, 120px 0 #3f51b5;
+        130px 0 #8D8DAA, 120px 0 #8D8DAA;
     }
     87% {
       box-shadow: 200px 0 rgba(255, 255, 255, 0), 200px 0 rgba(255, 255, 255, 0),
-        200px 0 rgba(255, 255, 255, 0), 130px 0 #3f51b5;
+        200px 0 rgba(255, 255, 255, 0), 130px 0 #8D8DAA;
     }
     100% {
       box-shadow: 200px 0 rgba(255, 255, 255, 0), 200px 0 rgba(255, 255, 255, 0),

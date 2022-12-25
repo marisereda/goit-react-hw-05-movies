@@ -14,7 +14,6 @@ export const Link = styled(NavLink)`
 
   &.active {
     color: ${p => p.theme.colors.linkActive};
-    /* text-decoration: underline; */
 
     ::after {
       content: '';

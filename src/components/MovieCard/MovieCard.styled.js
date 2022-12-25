@@ -5,6 +5,12 @@ export const Item = styled.li`
   box-shadow: ${p => p.theme.shadows.primary};
   overflow: hidden;
   cursor: pointer;
+  transform: scale(1);
+  transition: ${p => p.theme.styles.transition};
+
+  :hover {
+    transform: scale(1.03);
+  }
 `;
 
 export const Image = styled.img`

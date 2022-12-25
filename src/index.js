@@ -14,11 +14,3 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     </BrowserRouter>
   </React.StrictMode>
 );
-
-// const rootEl = document.querySelector('#root');
-// console.log(rootEl);
-
-// const root = ReactDOM.createRoot(rootEl);
-// console.log(root);
-
-// root.render(<App />);

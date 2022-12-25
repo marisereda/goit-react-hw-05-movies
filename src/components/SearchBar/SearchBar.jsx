@@ -1,42 +1,34 @@
 import PropTypes from 'prop-types';
-
 import React, { useState } from 'react';
 import { ImSearch } from 'react-icons/im';
 import { Box } from 'components/Box';
 import { Form, Button, SearchInput } from 'components/SearchBar';
 import { theme } from 'constants/theme';
 
-export const SearchBar = ({ onSearchSubmit }) => {
+export const SearchBar = ({ onSearchSubmit, value }) => {
   const [search, setSearch] = useState('');
 
-  // --------------------------------
+  // -------------------------------------------------
   const handleSubmit = e => {
     e.preventDefault();
     onSearchSubmit(search);
   };
 
-  // --------------------------------
+  // -------------------------------------------------
   const handleInputChange = e => {
     setSearch(e.target.value);
   };
 
+  // -------------------------------------------------
   return (
     <Box
-      // top={0}
-      // left={0}
-      // position=" sticky"
-      // zIndex="searchBar"
       display="flex"
       justifyContent="center"
       alignItems="center"
       minHeight="searchBar"
-      // paddingRight={5}
-      // paddingLeft={5}
       paddingTop={6}
       paddingBottom={6}
       color="textPrimary"
-      // backgroundColor="bgSearchBar"
-      // boxShadow="primary"
       as="div"
     >
       <Form onSubmit={handleSubmit}>
@@ -50,7 +42,7 @@ export const SearchBar = ({ onSearchSubmit }) => {
           autoFocus
           placeholder="Search movies"
           onChange={handleInputChange}
-          value={search}
+          value={value ? value : search}
         />
       </Form>
     </Box>

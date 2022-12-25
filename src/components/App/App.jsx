@@ -1,8 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
-import React, { useState, useEffect, useRef } from 'react';
-// import { ToastContainer, toast } from 'react-toastify';
-// import 'react-toastify/dist/ReactToastify.css';
-// import { throttle } from 'lodash';
+import React from 'react';
 
 import { GlobalStyle } from 'components/GlobalStyle';
 import { Box } from 'components/Box';
@@ -10,7 +7,6 @@ import SharedLayout from 'components/SharedLayout';
 import Home from 'pages/Home';
 import Movies from 'pages/Movies';
 import MovieDetails from 'components/MovieDetails';
-import AdditionalInformation from 'components/AdditionalInformation';
 import Cast from 'components/Cast';
 import Reviews from 'components/Reviews';
 import NotFound from 'pages/NotFound';

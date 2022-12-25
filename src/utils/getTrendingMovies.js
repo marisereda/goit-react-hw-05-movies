@@ -1,14 +1,13 @@
 import axios from 'axios';
 
-const URL = 'https://api.themoviedb.org/3/search/movie';
+const URL = 'https://api.themoviedb.org/3/trending/movie/day';
 const KEY = '4078fca0c4fe3db38be6de95030c2ed1';
 // const PAGE_SIZE = 12;
 
-export async function getMovies({ page = 1, search = '', signal }) {
+export async function getTrendingMovies({ signal, page = 1 }) {
   let params = {
     api_key: KEY,
     page: page,
-    query: search,
   };
 
   try {

@@ -5,7 +5,7 @@ export const theme = {
     link: '28px',
     title: '16px',
     input: '24px',
-    button: '18px',
+    text: '18px',
   },
 
   colors: {
@@ -17,20 +17,21 @@ export const theme = {
     linkHover: 'white',
     link: '#ededed',
     title: '#8D8DAA',
+    subTitle: 'rgba (0,0,0,0.5)',
   },
 
   sizes: {
-    container: '1440px',
-    movieCard: '300px',
-    titleBlock: '80px',
-    form: '600px',
+    backIcon: '30px',
     buttonIcon: '48px',
-    buttonWidth: '180px',
-    buttonScrollUp: '60px',
-    loader: '10px',
-    iconScrollUp: '30px',
+    container: '1440px',
+    form: '600px',
     iconSearch: '20px',
+    loader: '10px',
+    maxBox: '100%',
+    menu: '225px',
+    movieCard: '300px',
     searchBar: '64px',
+    titleBlock: '80px',
   },
 
   borders: {
@@ -39,6 +40,7 @@ export const theme = {
 
   radii: {
     primary: '5px',
+    textBlock: '25px',
     circle: '50%',
   },
 
@@ -46,10 +48,7 @@ export const theme = {
     primary: '5px 6px 15px -2px rgba(0,0,0,0.52)',
   },
 
-  zIndices: {
-    searchBar: '1100',
-    modal: '1200',
-  },
+  zIndices: {},
 
   styles: {
     opacity: '0.2',

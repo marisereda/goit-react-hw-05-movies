@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Box } from 'components/Box';
@@ -7,7 +8,6 @@ import Loader from 'components/Loader';
 import { SearchBar } from 'components/SearchBar';
 import { getMovies } from 'utils';
 
-const END_POINT = 'search/movie';
 const STATUS = {
   idle: 0,
   pending: 1,
@@ -17,23 +17,49 @@ const STATUS = {
 
 const Movies = () => {
   const [foundMovies, setFoundMovies] = useState([]);
-  const [status, setStatus] = useState(STATUS.idle);
+  const [status, setStatus] = useState(STATUS.movieGallery);
+  const [searchParams, setSearchPararms] = useSearchParams();
 
-  const handleSubmit = async search => {
-    try {
-      const foundMovies = await getMovies({
-        endPoint: END_POINT,
-        search: search,
-      });
-      console.log('Home page:', foundMovies);
-      setStatus(STATUS.resolved);
+  //------------------------------------------------
+  useEffect(() => {
+    const controller = new AbortController();
+    const signal = controller.signal;
+    const search = searchParams.get('query');
 
-      setFoundMovies(foundMovies);
-    } catch (error) {
-      setStatus(STATUS.rejected);
-      toast(error.message);
+    if (!search) {
+      setFoundMovies([]);
+      return;
     }
+
+    async function sendQuery() {
+      try {
+        setStatus(STATUS.pending);
+
+        const foundMovies = await getMovies({
+          search: search.trim(),
+          signal,
+        });
+        setStatus(STATUS.resolved);
+        setFoundMovies(foundMovies);
+      } catch (error) {
+        setStatus(STATUS.rejected);
+        toast(error.message);
+      }
+    }
+
+    sendQuery();
+
+    return () => {
+      controller.abort();
+    };
+  }, [searchParams]);
+
+  //------------------------------------------------
+  const handleSubmit = search => {
+    setSearchPararms(search ? { query: search.trim() } : {});
   };
+
+  //------------------------------------------------
 
   return (
     <Box backgroundColor="bgMain" minHeight="100vh" as="main">
@@ -46,9 +72,15 @@ const Movies = () => {
         paddingLeft={3}
         paddingRight={3}
       >
-        <SearchBar onSearchSubmit={handleSubmit} />
+        <SearchBar
+          onSearchSubmit={handleSubmit}
+          value={searchParams.get('query')}
+        />
+
         {status === STATUS.pending && <Loader />}
+
         <MovieGallery movies={foundMovies} />
+
         <ToastContainer />
       </Box>
     </Box>

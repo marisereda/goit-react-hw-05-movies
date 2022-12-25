@@ -1,7 +1,5 @@
-// import { NavLink } from 'react-router-dom';
 import { Box } from 'components/Box';
-import { Link } from './Header.styled';
-// import { Link } from 'react-router-dom';
+import { Link } from 'components/Link';
 
 const Header = () => {
   return (
@@ -18,7 +16,6 @@ const Header = () => {
       >
         <Box display="flex" alignItems="center" gridGap={5} as="nav">
           <Link to="/">Home</Link>
-
           <Link to="movies">Movies</Link>
         </Box>
       </Box>
