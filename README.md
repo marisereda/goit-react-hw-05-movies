@@ -1,24 +1,23 @@
-Movie Search. Create a basic routing for a movie search and storage application.
+# Movies
 
-themoviedb.org API For the backend, use themoviedb.org API. You need to register
-(you can enter any data) and get API key. The following endpoints will be used
-in this work.
+The **Movies** project is a basic routing for a movie search and storage
+application. Themoviedb.org API is used for the backend. The collection of the
+most popular movies for today is created on the Home page. On the Movies page, there is a search by movie name. Clicking the movie card one can see the movie
+details, including cast and reviews.
 
-/trending/get-trending a list of the most popular movies for today to create a
-collection on the home page page. /search/search-movies keyword search for a
-movie on the movies page. /movies/get-movie-details Request full movie info for
-the movie page. /movies/get-movie-credits Request cast info for the movie page.
-/movies/get-movie-reviews requesting reviews for the movie page. Documentation
-link
+The project demonstrates the use of React Router Dom library, making routes,
+and rendering components depending on the current route.
 
-Routes. The app should have the following routes. If a user has accessed a
-non-existent route, it must be redirected to the home page.
+## There were used:
 
-The ``Home'' component, the home page with a list of popular movies. The
-/'/movies' - component Movies, a page of movie search by keyword. keyword.
-/movies/:movieId' - component MovieDetails, a page with detailed information
-about the movie. /movies/:movieId/cast - component Cast, information about the
-cast. Rendered on the page MovieDetails. /movies/:movieId/reviews - component
-Reviews, information about reviews. Rendered on the page MovieDetails. Code
-Splitting Add asynchronous JS code loading for the application routes using
-React.lazy() and <Suspense>.
+- React
+- API themoviedb
+- React hooks
+- React Router Dom
+- Styled-system
+- Styled components
+  
+  
+
+The live Movies page is
+[here](https://marisereda.github.io/goit-react-hw-05-movies/).
